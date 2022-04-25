@@ -1,0 +1,192 @@
+/* CSS specific to index.html */
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+html{
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+header{
+    width: 100%;
+}
+
+
+footer{
+    width: 100%;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.main-container{
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+}
+
+.index-title-container{
+    display: flex;
+    width: 100%;
+
+    padding: 2em;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index-title{
+    width: 100%;
+    margin: 0 0 1em;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.index-subtitle{
+    width: 100%;
+    font-weight: normal;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.index-text-container{
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.dark-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.6);
+    animation: fadein 1s;
+}
+
+@keyframes fadein {
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+.modal{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 480px;
+    min-height: 240px;
+    max-height: 480px;
+
+    border-radius: 1em;
+
+    padding: 3em 0;
+    background-color: #ffffff;
+    flex-direction: column;
+
+    animation: fadein 1s, moveup 1s forwards;
+}
+
+.modal-z{
+    z-index: 2;
+}
+
+@keyframes moveup{
+    from{
+        transform: translate(-50%, calc(-50% + 40px));
+    }
+    to{
+        transform: translate(-50%, -50%);
+    }
+}
+
+.modal-close-button{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    height: 1em;
+    width: 1em;
+    background: none;
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Cpolygon fill='black' points='96 14 82 0 48 34 14 0 0 14 34 48 0 82 14 96 48 62 82 96 96 82 62 48 '/%3E%3C/svg%3E");
+    border: none;
+    cursor: pointer;
+    animation: close-modal-roll 0.75s alternate forwards linear infinite paused;
+}
+
+@keyframes close-modal-roll{
+    0%{
+        right: 1em;
+        transform: rotate(0deg);
+    }
+    2%{
+        right: 1em;
+        transform: rotate(0deg);
+    }
+    98%{
+        right: calc(100% - 2em);
+        transform: rotate(-720deg);
+    }
+    100%{
+        right: calc(100% - 2em);
+        transform: rotate(-720deg);
+    }
+}
+
+.modal-title{
+    padding: 0 2em;
+    margin-bottom: 1rem;
+
+    font-size: 1.15rem;
+    text-align: center;
+
+    font-weight: bold;
+}
+
+.modal-content{
+    margin-bottom: 2rem;
+    padding: 0 3em;
+    overflow-y: auto;
+    font-size: 0.9rem;
+    font-weight: lighter;
+    text-align: justify;
+}
+
+.button-row{
+    display: flex;
+    width: 100%;
+    padding: 0 3em;
+    justify-content: center;
+    gap: 1em;
+}
+
+.cookie-button{
+    border-radius: 1em;
+
+    min-width: 10em;
+
+    padding: 0.25em 0.5em;
+
+    font-weight: bold;
+    
+    cursor: pointer;
+}
+
+.modal-content-description p{
+    font-size: 0.8rem;
+}
+
+.submodal-z{
+    z-index: 4;
+}
