@@ -8,6 +8,7 @@
 
 html{
     font-family: sans-serif;
+    font-size: 16px;
     line-height: 1.5;
 }
 
@@ -22,6 +23,14 @@ footer{
 
 .bold{
     font-weight: bold;
+}
+
+p{
+    margin-top: 0;
+}
+
+details summary::-webkit-details-marker{
+    display: none;
 }
 
 .main-container{
@@ -130,11 +139,11 @@ footer{
         right: 1em;
         transform: rotate(0deg);
     }
-    2%{
+    3%{
         right: 1em;
         transform: rotate(0deg);
     }
-    98%{
+    97%{
         right: calc(100% - 2em);
         transform: rotate(-720deg);
     }
@@ -158,7 +167,7 @@ footer{
     margin-bottom: 2rem;
     padding: 0 3em;
     overflow-y: auto;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: lighter;
     text-align: justify;
 }
@@ -183,10 +192,49 @@ footer{
     cursor: pointer;
 }
 
-.modal-content-description p{
-    font-size: 0.8rem;
-}
-
 .submodal-z{
     z-index: 4;
+}
+
+.modal-content-details{
+    border: 1px solid black;
+    border-radius: 2px;
+    margin-bottom: 0.5em;
+}
+
+.modal-content-summary{
+    display: flex;
+    position: relative;
+    padding: 0.5em 0.25em 0.5em 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content-summary::before
+{
+    display: flex;
+    position: absolute;
+    flex-shrink: 0;
+    border-width: 0.5em;
+    border-style: solid;
+    border-color: transparent transparent transparent #000000;
+    top: calc(50% - 0.5em);
+    left: 0.5em;
+    content:"";
+    transform: rotate(0);
+    transform-origin: .25rem 50%;
+    transition: 200ms ease;
+}
+
+
+details[open] > .modal-content-summary::before{
+    transform: rotate(90deg);
+}
+
+.modal-content-details-content{
+    padding:  0.5em;
+}
+
+.about-cookies-content{
+    font-size: 0.8em;
 }
